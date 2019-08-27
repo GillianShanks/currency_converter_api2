@@ -9,33 +9,34 @@
   <title>Starter</title>
 </head>
 <body>
-  <div id="app" >
+  <div id="app" class="flex flex-col center">
     <h1>Currency converter</h1>
 
-    <div id="convertSentence">
-      <h4>Convert</h4>
+    <div id="convertSentence" class="flex flex-col center">
+      <h2>Convert</h2>
 
-      <div>
-        <p>Enter amount: </p>
+      <div class="selects flex flex-row between">
         <input v-model="input" type="number" min=0 />
-      </div>
-
-      <div>
-        <h4>from</h4>
         <select v-model="selectedRate1">
           <option value="">currency:</option>
           <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
         </select>
+      </div>
 
-
-        <h4>to</h4>
+      <div class="selects flex flex-row between">
+        <h3>to:</h3>
         <select v-model="selectedRate2" id="currency-select">
           <option disabled value="">currency:</option>
           <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
         </select>
       </div>
 
-      <h4>is </h4><h4 v-if="selectedRate2 && selectedRate1">{{output}} {{selectedCurrency}}</h4>
+      <div class="selects flex flex-row between border">
+        <h2>conversion:</h2>
+
+        <h4  v-if="selectedRate2 && selectedRate1">{{output}} {{selectedCurrency}}</h4>
+      </div>
+
     </div>
 
   </div>
