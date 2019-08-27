@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
       rates: null,
       base: null,
       fromTo: 'from',
-      toFrom: 'to',
       selectedRate: 0,
       input: 0,
     },
@@ -15,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
       output: function(){
         if (this.fromTo==='from') {
           return (this.input * this.selectedRate).toFixed(2);
+        } else if (this.selectedRate){
+          return (this.input / this.selectedRate).toFixed(2);
         }
 
       },
@@ -23,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       toFrom: function(){
         if (this.fromTo==='from'){
-          this.toFrom = 'to';
+          return 'to';
         } else {
-          this.toFrom = 'from';
+          return 'from';
         }
       }
     },
