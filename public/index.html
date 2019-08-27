@@ -24,7 +24,6 @@
         <h4>from</h4>
         <select v-model="selectedRate1">
           <option value="">currency:</option>
-          <option :value="1">{{base}}</option>
           <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
         </select>
 
@@ -32,7 +31,6 @@
         <h4>to</h4>
         <select v-model="selectedRate2" id="currency-select">
           <option disabled value="">currency:</option>
-          <option :value="1">{{base}}</option>
           <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
         </select>
       </div>

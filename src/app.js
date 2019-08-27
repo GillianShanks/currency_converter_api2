@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     el: '#app',
     data: {
       rates: null,
-      base: null,
       selectedRate1: "",
       selectedRate2: "",
       input: 0,
@@ -17,11 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       },
       selectedCurrency: function(){
-        if (this.selectedRate2===1){
-          return this.base;
-        } else {
-          return Object.keys(this.rates).find(key => this.rates[key] === this.selectedRate2);
-        }
+        return Object.keys(this.rates).find(key => this.rates[key] === this.selectedRate2);
       },
     },
     mounted(){
@@ -33,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
           this.rates=data.rates;
-          this.base=data.base;
+          this.rates["EUR"] = 1;
         });
       },
 
