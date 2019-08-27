@@ -25,18 +25,22 @@
           <option selected value="from">from</option>
           <option value="to">to</option>
         </select>
-        <select>
+        <select v-model="selectedRate1">
+          <option value="">currency:</option>
           <option :value="1">{{base}}</option>
+          <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
         </select>
 
 
         <h4>{{toFrom}}</h4>
-        <select v-model="selectedRate" id="currency-select">
+        <select v-model="selectedRate2" id="currency-select">
+          <option disabled value="">currency:</option>
+          <option :value="1">{{base}}</option>
           <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
         </select>
       </div>
 
-      <h4>is {{output}} {{selectedCurrency}}</h4>
+      <h4>is </h4><h4 v-if="selectedRate2">{{output}} {{selectedCurrency}}</h4>
     </div>
 
   </div>
