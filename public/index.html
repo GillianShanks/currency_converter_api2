@@ -21,10 +21,7 @@
       </div>
 
       <div>
-        <select v-model="fromTo" id="fromTo">
-          <option selected value="from">from</option>
-          <option value="to">to</option>
-        </select>
+        <h4>from</h4>
         <select v-model="selectedRate1">
           <option value="">currency:</option>
           <option :value="1">{{base}}</option>
@@ -32,7 +29,7 @@
         </select>
 
 
-        <h4>{{toFrom}}</h4>
+        <h4>to</h4>
         <select v-model="selectedRate2" id="currency-select">
           <option disabled value="">currency:</option>
           <option :value="1">{{base}}</option>
@@ -40,7 +37,7 @@
         </select>
       </div>
 
-      <h4>is </h4><h4 v-if="selectedRate2">{{output}} {{selectedCurrency}}</h4>
+      <h4>is </h4><h4 v-if="selectedRate2 && selectedRate1">{{output}} {{selectedCurrency}}</h4>
     </div>
 
   </div>
